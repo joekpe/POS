@@ -22,7 +22,9 @@ class UserResource extends Resource
 
     protected static ?int $navigationSort = 9;
 
-    protected static ?string $navigationIcon = 'heroicon-o-lock-closed';
+    protected static ?string $navigationIcon = 'heroicon-o-user-group';
+
+    protected static ?string $recordTitleAttribute = 'name';
 
     protected static function getNavigationLabel(): string
     {
