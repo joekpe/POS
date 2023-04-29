@@ -23,10 +23,14 @@ class ReceivingResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('supplier_id')
-                    ->required(),
-                Forms\Components\TextInput::make('product_id')
-                    ->required(),
+                Forms\Components\Select::make('supplier_id')
+                    ->required()
+                    ->relationship('supplier', 'name')
+                    ->searchable(),
+                Forms\Components\Select::make('product_id')
+                    ->required()
+                    ->relationship('product', 'name')
+                    ->searchable(),
                 Forms\Components\TextInput::make('cost')
                     ->required(),
                 Forms\Components\TextInput::make('quantity')
@@ -38,16 +42,23 @@ class ReceivingResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('supplier_id'),
-                Tables\Columns\TextColumn::make('product_id'),
-                Tables\Columns\TextColumn::make('cost'),
-                Tables\Columns\TextColumn::make('quantity'),
+                Tables\Columns\TextColumn::make('supplier.name')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('product.name')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('cost')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('quantity')
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime(),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime(),
-                Tables\Columns\TextColumn::make('deleted_at')
-                    ->dateTime(),
+                    ->dateTime()
+                    ->sortable(),
+                // Tables\Columns\TextColumn::make('updated_at')
+                //     ->dateTime(),
+                // Tables\Columns\TextColumn::make('deleted_at')
+                //     ->dateTime(),
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),

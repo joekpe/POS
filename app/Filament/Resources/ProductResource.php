@@ -43,10 +43,12 @@ class ProductResource extends Resource
                     ->numeric(),
                 Forms\Components\TextInput::make('quantity_stock')
                     ->required()
-                    ->numeric(),
+                    ->numeric()
+                    ->hiddenOn('edit'),
                 Forms\Components\TextInput::make('receiving_quantity')
                     ->required()
-                    ->numeric(),
+                    ->numeric()
+                    ->visibleOn('create'),
                 Forms\Components\TextInput::make('reorder_level')
                     ->required()
                     ->numeric(),
