@@ -11,7 +11,7 @@ class SuppliersStatsOverview extends BaseWidget
     protected function getCards(): array
     {
         return [
-            Card::make('Total Customers', Supplier::all()->count())
+            Card::make('Total Suppliers', Supplier::all()->count())
         ];
     }
 }
