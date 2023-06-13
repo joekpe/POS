@@ -9,6 +9,7 @@
         "3x1io/filament-user": "^1.1",
         "bezhansalleh/filament-shield": "^2.4",
         "filament/filament": "^2.0",
+        "filament/notifications": "^2.0",
         "guzzlehttp/guzzle": "^7.2",
         "jeffgreco13/filament-breezy": "*",
         "laravel/fortify": "^1.16",

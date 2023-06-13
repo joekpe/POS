@@ -31,7 +31,7 @@ class ProductResource extends Resource
                 Forms\Components\TextInput::make('category')
                     ->required()
                     ->maxLength(255)
-                    ->datalist(\App\Models\Product::pluck('category')),
+                    ->datalist(\App\Models\Product::distinct('category')->pluck('category')),
                 Forms\Components\Select::make('supplier_id')
                     ->relationship('supplier', 'name')
                     ->searchable(),
